@@ -168,8 +168,6 @@
     <string name="preference_stamp_fontsize">글자 크기</string>
     <string name="preference_stamp_fontsize_summary">사진에 글자를 새길때 사용할 글자 크기를 선택합니다\n%s</string>
     <string name="video_quality">동영상 해상도</string>
-    <string name="preference_force_camera2">Camera2 API 선택 가능 강제</string>
-    <string name="preference_force_camera2_summary">경고! Camera2 API를 강제로 활성화 할 경우 의도하지 않은 문제가 발생할 수 있으며, 최악의 경우 앱을 쓸 수 없게 될 수 있습니다.\n버전 조건은 여전히 확인합니다 (재시작 필요)</string>
     <string name="preference_force_video_4k">강제 4K UHD 비디오 (실험적)</string>
     <string name="preference_force_video_4k_summary">후면 카메라로 동영상 촬영시 3840x2160 해상도를 사용합니다 - 기기가 지원하는 경우에만 작동하며 아닐 경우 충돌이 발생할 수 있습니다</string>
     <string name="preference_video_stabilization">비디오 안정화 사용</string>
@@ -338,6 +336,8 @@
     <string name="preference_immersive_mode_everything">모두 숨기기</string>
 
     <string name="preference_screen_experimental_settings">실험적인 설정</string>
+    <string name="preference_force_camera2">Camera2 API 선택 가능 강제</string>
+    <string name="preference_force_camera2_summary">경고! Camera2 API를 강제로 활성화 할 경우 의도하지 않은 문제가 발생할 수 있으며, 최악의 경우 앱을 쓸 수 없게 될 수 있습니다.\n버전 조건은 여전히 확인합니다 (재시작 필요)</string>
     <string name="preference_revert_218d71b5">TEMPLATE_MANUAL 대신 TEMPLATE_STILL_CAPTURE 사용</string>
     <string name="preference_revert_218d71b5_summary">사진이 초록색으로 찍히는 문제를 해결할 수도 있으나, 일부 기기에서 HDR이나 장노출 관련 문제가 발생할 수 있습니다.\n(218d71b5 커밋을 되돌림)</string>
 

@@ -39,7 +39,6 @@ public class PreferenceKeys {
 
     public static final String CameraAPIPreferenceDefault = "preference_camera_api_old";
     public static final String CameraAPIPreferenceKey = "preference_camera_api";
-    public static final String ForceCamera2APIPreferenceKey = "preference_force_camera2";
 
 
     public static String getFlashPreferenceKey(int cameraId) {
@@ -367,6 +366,7 @@ public class PreferenceKeys {
     public static final String ImmersiveModePreferenceKey = "preference_immersive_mode";
     public static final String AddYPRToComments="preference_comment_ypr";
 
+    public static final String ForceCamera2APIPreferenceKey = "preference_force_camera2";
     // use legacy capture template(TEMPLATE_STILL_CAPTURE) instead of current one(TEMPLATE_MANUAL) for manual capture
     public static final String UseLegacyCaptureTemplatePreferenceKey = "preference_revert_218d71b5";
 }
