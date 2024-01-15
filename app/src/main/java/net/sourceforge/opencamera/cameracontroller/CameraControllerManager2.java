@@ -1,15 +1,18 @@
 package net.sourceforge.opencamera.cameracontroller;
 
 import net.sourceforge.opencamera.MyDebug;
+import net.sourceforge.opencamera.PreferenceKeys;
 import net.sourceforge.opencamera.R;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Rect;
 import android.hardware.camera2.CameraCharacteristics;
 import android.hardware.camera2.CameraManager;
 import android.hardware.camera2.CameraMetadata;
 import android.os.Build;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.util.SizeF;
 
@@ -150,7 +153,14 @@ public class CameraControllerManager2 extends CameraControllerManager {
      * From Android N, higher levels than "FULL" are possible, that will have higher integer values.
      * Also see https://sourceforge.net/p/opencamera/tickets/141/ .
      */
-    static boolean isHardwareLevelSupported(CameraCharacteristics c, int requiredLevel) {
+    static boolean isHardwareLevelSupported(Context context, CameraCharacteristics c, int requiredLevel) {
+        // Force Camera2 API to be shown
+        // Check only for minimum version requirement when this flag is enabled
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean forceCamera2 = sharedPreferences.getBoolean(PreferenceKeys.ForceCamera2APIPreferenceKey, false);
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP &&
+                forceCamera2 == true) return true;
+
         int deviceLevel = c.get(CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL);
         if( MyDebug.LOG ) {
             switch (deviceLevel) {
@@ -199,8 +209,8 @@ public class CameraControllerManager2 extends CameraControllerManager {
         try {
             String cameraIdS = manager.getCameraIdList()[cameraId];
             CameraCharacteristics characteristics = manager.getCameraCharacteristics(cameraIdS);
-            //return isHardwareLevelSupported(characteristics, CameraMetadata.INFO_SUPPORTED_HARDWARE_LEVEL_LEGACY);
-            return isHardwareLevelSupported(characteristics, CameraMetadata.INFO_SUPPORTED_HARDWARE_LEVEL_LIMITED);
+            //return isHardwareLevelSupported(context, characteristics, CameraMetadata.INFO_SUPPORTED_HARDWARE_LEVEL_LEGACY);
+            return isHardwareLevelSupported(context, characteristics, CameraMetadata.INFO_SUPPORTED_HARDWARE_LEVEL_LIMITED);
         }
         catch(Throwable e) {
             // in theory we should only get CameraAccessException, but Google Play shows we can get a variety of exceptions
