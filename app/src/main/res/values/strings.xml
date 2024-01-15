@@ -1085,7 +1085,7 @@
     <string name="preference_screen_experimental_settings">Experimental settings…</string>
     <string name="preference_force_camera2">Force Camera2 API availability</string>
     <string name="preference_force_camera2_summary">WARNING! Forcing Camera2 API might cause unexpected behavior, app might keep crash in worst case.\nThis still checks version requirements (restart required)</string>
-    <string name="preference_revert_218d71b5">Use TEMPLATE_STILL_CAPTURE instead of TEMPLATE_MANUAL</string>
+    <string name="preference_revert_218d71b5">Use legacy capture method</string>
     <string name="preference_revert_218d71b5_summary">This may fix pictures taken with a green tint, but introduce issues with HDR and long exposures for some devices.\n(This reverts commit 218d71b5)</string>
 
 </resources>
