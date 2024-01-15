@@ -989,6 +989,16 @@ public class MainActivity extends AppCompatActivity {
                 supports_camera2 = true;
             }
         }
+		
+        // if Camera2 API is not forced and enabled without support, disable it
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean force_camera2 = sharedPreferences.getBoolean(PreferenceKeys.ForceCamera2APIPreferenceKey, false);
+        if ( !force_camera2 && !supports_camera2 ) {
+            Log.w(TAG, "Camera2 API is not forced and enabled without support, will be disabled.");
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString(PreferenceKeys.CameraAPIPreferenceKey, PreferenceKeys.CameraAPIPreferenceDefault);
+            editor.apply();
+        }
 
         if( MyDebug.LOG )
             Log.d(TAG, "supports_camera2? " + supports_camera2);
