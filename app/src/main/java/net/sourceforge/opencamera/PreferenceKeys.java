@@ -39,6 +39,7 @@ public class PreferenceKeys {
 
     public static final String CameraAPIPreferenceDefault = "preference_camera_api_old";
     public static final String CameraAPIPreferenceKey = "preference_camera_api";
+    public static final String ForceCamera2APIPreferenceKey = "preference_force_camera2";
 
     public static String getFlashPreferenceKey(int cameraId) {
         return "flash_value_" + cameraId;
