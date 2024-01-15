@@ -366,4 +366,7 @@ public class PreferenceKeys {
 
     public static final String ImmersiveModePreferenceKey = "preference_immersive_mode";
     public static final String AddYPRToComments="preference_comment_ypr";
+
+    // use legacy capture template(TEMPLATE_STILL_CAPTURE) instead of current one(TEMPLATE_MANUAL) for manual capture
+    public static final String UseLegacyCaptureTemplatePreferenceKey = "preference_revert_218d71b5";
 }
