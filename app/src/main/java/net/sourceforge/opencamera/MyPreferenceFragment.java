@@ -1667,6 +1667,20 @@ public class MyPreferenceFragment extends PreferenceFragment implements OnShared
                 }
             });
         }
+        {
+            final Preference pref = findPreference("preference_force_camera2");
+            pref.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(Preference arg0) {
+                    if( pref.getKey().equals("preference_force_camera2") ) {
+                        if (MyDebug.LOG) Log.d(TAG, "user switched force camera2 API toggle - need to restart");
+                        MainActivity main_activity = (MainActivity)MyPreferenceFragment.this.getActivity();
+                        main_activity.restartOpenCamera();
+                    }
+                    return false;
+                }
+            });
+        }
 
         setupDependencies();
     }

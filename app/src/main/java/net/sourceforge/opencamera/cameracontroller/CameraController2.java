@@ -2786,7 +2786,7 @@ public class CameraController2 extends CameraController {
         // So instead set to true for all LIMITED devices. Still keep block for LEGACY devices (which definitely shouldn't
         // support fast burst - and which Open Camera never allowed with Camera2 before 1.45).
         // Also may affect Samsung Galaxy A8(2018).
-        camera_features.supports_burst = CameraControllerManager2.isHardwareLevelSupported(characteristics, CameraMetadata.INFO_SUPPORTED_HARDWARE_LEVEL_LIMITED);
+        camera_features.supports_burst = CameraControllerManager2.isHardwareLevelSupported(context, characteristics, CameraMetadata.INFO_SUPPORTED_HARDWARE_LEVEL_LIMITED);
 
         if( MyDebug.LOG ) {
             //Log.d(TAG, "capabilities_manual_sensor?: " + capabilities_manual_sensor);
@@ -3172,7 +3172,7 @@ public class CameraController2 extends CameraController {
         if( MyDebug.LOG )
             Log.d(TAG, "is_video_stabilization_supported: " + camera_features.is_video_stabilization_supported);
 
-        camera_features.is_photo_video_recording_supported = CameraControllerManager2.isHardwareLevelSupported(characteristics, CameraMetadata.INFO_SUPPORTED_HARDWARE_LEVEL_LIMITED);
+        camera_features.is_photo_video_recording_supported = CameraControllerManager2.isHardwareLevelSupported(context, characteristics, CameraMetadata.INFO_SUPPORTED_HARDWARE_LEVEL_LIMITED);
         supports_photo_video_recording = camera_features.is_photo_video_recording_supported;
 
         int [] white_balance_modes = characteristics.get(CameraCharacteristics.CONTROL_AWB_AVAILABLE_MODES);
@@ -3193,7 +3193,7 @@ public class CameraController2 extends CameraController {
 
         // see note above
         //if( capabilities_manual_sensor )
-        if( CameraControllerManager2.isHardwareLevelSupported(characteristics, CameraMetadata.INFO_SUPPORTED_HARDWARE_LEVEL_LIMITED) )
+        if( CameraControllerManager2.isHardwareLevelSupported(context, characteristics, CameraMetadata.INFO_SUPPORTED_HARDWARE_LEVEL_LIMITED) )
         {
             Range<Integer> iso_range = characteristics.get(CameraCharacteristics.SENSOR_INFO_SENSITIVITY_RANGE); // may be null on some devices
             if( iso_range != null ) {
