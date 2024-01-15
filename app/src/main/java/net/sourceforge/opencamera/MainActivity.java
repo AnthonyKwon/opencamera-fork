@@ -1006,7 +1006,6 @@ public class MainActivity extends AppCompatActivity {
         // handle the switch from a boolean preference_use_camera2 to String preference_camera_api
         // that occurred in v1.48
         if( supports_camera2 ) {
-            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
             if( !sharedPreferences.contains(PreferenceKeys.CameraAPIPreferenceKey) // doesn't have the new key set yet
                     && sharedPreferences.contains("preference_use_camera2") // has the old key set
                     && sharedPreferences.getBoolean("preference_use_camera2", false) // and camera2 was enabled
